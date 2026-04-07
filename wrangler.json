@@ -1,0 +1,9 @@
+{
+	"name": "worker-mailer-site",
+	"compatibility_date": "2026-04-07",
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare"
+	}
+}
