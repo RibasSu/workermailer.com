@@ -61,6 +61,9 @@ export const site = {
 	ogImage: '/og-worker-mailer.svg',
 	githubUrl: 'https://github.com/RibasSu/worker-mailer',
 	npmUrl: 'https://www.npmjs.com/package/@workermailer/smtp',
+	originalGithubUrl: 'https://github.com/zou-yu/worker-mailer',
+	originalNpmUrl: 'https://www.npmjs.com/package/worker-mailer',
+	originalAuthor: 'zou-yu',
 	emdashUrl: 'https://emdashcms.com/',
 	discussionUrl: 'https://github.com/emdash-cms/emdash/discussions/245',
 	version: '1.3.3',
@@ -72,6 +75,7 @@ export const navigation = [
 	{ href: '/docs', label: 'Docs' },
 	{ href: '/examples', label: 'Examples' },
 	{ href: '/changelog', label: 'Changelog' },
+	{ href: '/credits', label: 'Credits' },
 	{ href: '/emdash', label: 'EmDash' }
 ] as const;
 
