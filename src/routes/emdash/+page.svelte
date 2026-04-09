@@ -71,7 +71,7 @@
 	</div>
 </section>
 
-<section class="border-y border-ink-300/80 bg-white/45 py-16 dark:border-ink-700 dark:bg-ink-950/35 md:py-20">
+<section class="section-band border-y border-ink-300/80 py-16 dark:border-ink-700 md:py-20">
 	<div class="site-shell space-y-8">
 		<div class="space-y-4">
 			<p class="section-eyebrow">Pipeline ideas in the thread</p>

@@ -60,7 +60,7 @@ export const site = {
 	url: 'https://workermailer.com',
 	ogImage: '/og-worker-mailer.svg',
 	githubUrl: 'https://github.com/RibasSu/worker-mailer',
-	npmUrl: 'https://www.npmjs.com/package/@ribassu/worker-mailer',
+	npmUrl: 'https://www.npmjs.com/package/@workermailer/smtp',
 	emdashUrl: 'https://emdashcms.com/',
 	discussionUrl: 'https://github.com/emdash-cms/emdash/discussions/245',
 	version: '1.3.3',
@@ -283,7 +283,7 @@ export const changelogEntries: ChangelogEntry[] = [
 			'2224ada: add custom error classes (InvalidEmailError, SmtpAuthError, SmtpConnectionError, SmtpRecipientError, SmtpTimeoutError, InvalidContentError)',
 			'2224ada: add support for inline attachments with Content-ID (CID) for embedding images in HTML emails',
 			'2224ada: add lifecycle hooks (onConnect, onSent, onError, onClose) for monitoring email operations',
-			'2224ada: add optional Cloudflare Queues integration for async email processing (`@ribassu/worker-mailer/queue`)',
+			'2224ada: add optional Cloudflare Queues integration for async email processing (`@workermailer/smtp/queue`)',
 			'b6ea3d8: fix duplicated `types` field in `package.json`',
 			'2068ddf: configure npm registry URL in publish workflow'
 		],
@@ -428,12 +428,12 @@ export const snippets = {
 	install: {
 		filename: 'terminal',
 		language: 'bash',
-		code: snippet`bun add @ribassu/worker-mailer`
+		code: snippet`bun add @workermailer/smtp`
 	},
 	installNpm: {
 		filename: 'terminal',
 		language: 'bash',
-		code: snippet`npm install @ribassu/worker-mailer`
+		code: snippet`npm install @workermailer/smtp`
 	},
 	workerConfig: {
 		filename: 'wrangler.json',
@@ -445,7 +445,7 @@ export const snippets = {
 	quickStart: {
 		filename: 'send-email.ts',
 		language: 'typescript',
-		code: snippet`import { WorkerMailer } from '@ribassu/worker-mailer'
+		code: snippet`import { WorkerMailer } from '@workermailer/smtp'
 
 const mailer = await WorkerMailer.connect({
   host: 'smtp.example.com',
@@ -469,7 +469,7 @@ await mailer.send({
 	oneOffSend: {
 		filename: 'send-once.ts',
 		language: 'typescript',
-		code: snippet`import { WorkerMailer } from '@ribassu/worker-mailer'
+		code: snippet`import { WorkerMailer } from '@workermailer/smtp'
 
 await WorkerMailer.send(
   {
@@ -496,7 +496,7 @@ await WorkerMailer.send(
   createQueueHandler,
   enqueueEmail,
   type QueueEmailMessage
-} from '@ribassu/worker-mailer/queue'
+} from '@workermailer/smtp/queue'
 
 interface Env {
   EMAIL_QUEUE: Queue<QueueEmailMessage>

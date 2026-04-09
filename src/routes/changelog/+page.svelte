@@ -32,7 +32,7 @@
 				dateFormat="full-date"
 				isLast={index === changelogEntries.length - 1}
 			>
-				<div class="glass-panel mt-5 rounded-[1.75rem] p-6">
+				<div class="surface-panel mt-5 rounded-[1.75rem] p-6">
 					<div class="flex flex-wrap items-baseline justify-between gap-3">
 						<p class="text-xl font-semibold tracking-tight text-ink-800 dark:text-ink-50">
 							{entry.version}

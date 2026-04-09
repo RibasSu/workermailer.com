@@ -21,11 +21,11 @@
 				class={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition ${
 					currentHash === item.href
 						? 'bg-brand-500 text-white'
-						: 'bg-white/80 text-ink-700 dark:bg-ink-950/80 dark:text-ink-300'
+						: 'border border-ink-300 bg-white text-ink-700 dark:border-ink-700 dark:bg-ink-950 dark:text-ink-300'
 				}`}
 			>
-				{item.label}
-			</a>
+					{item.label}
+				</a>
 		{/each}
 	</nav>
 
@@ -34,11 +34,11 @@
 		disableBreakpoints
 		backdrop={false}
 		ariaLabel="Documentation navigation"
-		class="!hidden !w-full !rounded-[1.75rem] !border !border-ink-300/80 !bg-white/82 !shadow-none dark:!border-ink-700 dark:!bg-ink-950/78 lg:!block"
+		class="!hidden !w-full !rounded-[1.75rem] !border !border-ink-300 !bg-white !shadow-none dark:!border-ink-700 dark:!bg-ink-950 lg:!block"
 		classes={{ div: '!bg-transparent !px-3 !py-3' }}
 	>
 		<SidebarWrapper class="space-y-3">
-			<div class="rounded-[1.35rem] border border-ink-300/80 bg-brand-50/70 px-4 py-4 dark:border-ink-700 dark:bg-brand-900/18">
+			<div class="rounded-[1.35rem] border border-ink-300 bg-brand-50 px-4 py-4 dark:border-ink-700 dark:bg-brand-900/20">
 				<p class="section-eyebrow">Docs</p>
 				<h2 class="mt-3 text-lg font-semibold tracking-tight text-ink-800 dark:text-ink-50">
 					Start with SMTP.

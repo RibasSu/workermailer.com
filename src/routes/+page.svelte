@@ -43,68 +43,65 @@
 				</Button>
 			</div>
 
-			<div class="grid gap-3 sm:grid-cols-3">
-				<div class="surface-panel rounded-[1.35rem] px-4 py-4">
-					<p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-500">Transport</p>
-					<p class="mt-2 text-base font-semibold tracking-tight text-ink-800 dark:text-ink-50">SMTP</p>
-					<p class="mt-2 text-sm leading-6 text-ink-600 dark:text-ink-300">
-						Direct delivery from Cloudflare Workers.
-					</p>
-				</div>
-				<div class="surface-panel rounded-[1.35rem] px-4 py-4">
-					<p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-500">Queues</p>
-					<p class="mt-2 text-base font-semibold tracking-tight text-ink-800 dark:text-ink-50">Optional</p>
-					<p class="mt-2 text-sm leading-6 text-ink-600 dark:text-ink-300">
-						Move send work off the request path.
-					</p>
-				</div>
-				<div class="surface-panel rounded-[1.35rem] px-4 py-4">
-					<p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-500">Typing</p>
-					<p class="mt-2 text-base font-semibold tracking-tight text-ink-800 dark:text-ink-50">TypeScript</p>
-					<p class="mt-2 text-sm leading-6 text-ink-600 dark:text-ink-300">
-						Hooks, DSN, attachments, and envelopes.
-					</p>
+			<div class="surface-panel overflow-hidden rounded-[1.35rem]">
+				<div class="grid gap-0 sm:grid-cols-3">
+					<div class="px-4 py-4 sm:px-5">
+						<p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-500">Transport</p>
+						<p class="mt-2 text-base font-semibold tracking-tight text-ink-800 dark:text-ink-50">SMTP</p>
+						<p class="mt-2 text-sm leading-6 text-ink-600 dark:text-ink-300">
+							Direct delivery from Cloudflare Workers.
+						</p>
+					</div>
+					<div class="border-t border-ink-300/80 px-4 py-4 sm:border-l sm:border-t-0 sm:px-5 dark:border-ink-700">
+						<p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-500">Optional</p>
+						<p class="mt-2 text-base font-semibold tracking-tight text-ink-800 dark:text-ink-50">Queues</p>
+						<p class="mt-2 text-sm leading-6 text-ink-600 dark:text-ink-300">
+							Move send work off the request path.
+						</p>
+					</div>
+					<div class="border-t border-ink-300/80 px-4 py-4 sm:border-l sm:border-t-0 sm:px-5 dark:border-ink-700">
+						<p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-500">Typing</p>
+						<p class="mt-2 text-base font-semibold tracking-tight text-ink-800 dark:text-ink-50">TypeScript</p>
+						<p class="mt-2 text-sm leading-6 text-ink-600 dark:text-ink-300">
+							Hooks, DSN, attachments, and envelopes.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="hero-gradient rounded-[1.75rem] border border-brand-200/80 p-[1px] dark:border-brand-700/40">
-			<div class="surface-panel rounded-[calc(1.75rem-1px)] p-5 sm:p-6">
-				<div class="space-y-5">
-					<div>
-						<p class="section-eyebrow">Current package surface</p>
-						<p class="mt-2 text-sm leading-7 text-ink-600 dark:text-ink-300">
-							The site avoids filler UI and invented integration details. What you see here is
-							the real package surface as it exists today.
+		<div class="hero-shell p-5 sm:p-6">
+			<div class="relative z-10 space-y-6">
+				<div class="space-y-3 pr-16 sm:pr-24">
+					<div class="h-1 w-16 rounded-full bg-brand-500"></div>
+					<p class="section-eyebrow">Current package surface</p>
+				</div>
+
+				<div class="divide-y divide-ink-300/80 border-t border-ink-300/80 dark:divide-ink-700 dark:border-ink-700">
+					<div class="grid gap-2 py-4 pr-12 sm:pr-16">
+						<p class="text-sm font-semibold tracking-tight text-ink-800 dark:text-ink-50">
+							Direct Worker delivery
+						</p>
+						<p class="text-sm leading-7 text-ink-600 dark:text-ink-300">
+							Cloudflare TCP sockets, SMTP auth modes, HTML/text bodies, and attachments.
 						</p>
 					</div>
-
-					<div class="space-y-4">
-						<div class="border-b border-ink-300/70 pb-4 dark:border-ink-700">
-							<p class="text-sm font-semibold tracking-tight text-ink-800 dark:text-ink-50">
-								Direct Worker delivery
-							</p>
-							<p class="mt-2 text-sm leading-7 text-ink-600 dark:text-ink-300">
-								Cloudflare TCP sockets, SMTP auth modes, HTML/text bodies, and attachments.
-							</p>
-						</div>
-						<div class="border-b border-ink-300/70 pb-4 dark:border-ink-700">
-							<p class="text-sm font-semibold tracking-tight text-ink-800 dark:text-ink-50">
-								Operational controls
-							</p>
-							<p class="mt-2 text-sm leading-7 text-ink-600 dark:text-ink-300">
-								Lifecycle hooks, DSN, custom SMTP errors, timeouts, and queue helpers.
-							</p>
-						</div>
-						<div>
-							<p class="text-sm font-semibold tracking-tight text-ink-800 dark:text-ink-50">
-								Careful EmDash positioning
-							</p>
-							<p class="mt-2 text-sm leading-7 text-ink-600 dark:text-ink-300">
-								The project tracks the EmDash discussion, but this site does not pretend the
-								integration contract is final.
-							</p>
-						</div>
+					<div class="grid gap-2 py-4 pr-12 sm:pr-16">
+						<p class="text-sm font-semibold tracking-tight text-ink-800 dark:text-ink-50">
+							Operational controls
+						</p>
+						<p class="text-sm leading-7 text-ink-600 dark:text-ink-300">
+							Lifecycle hooks, DSN, custom SMTP errors, timeouts, and queue helpers.
+						</p>
+					</div>
+					<div class="grid gap-2 py-4 pr-12 sm:pr-16">
+						<p class="text-sm font-semibold tracking-tight text-ink-800 dark:text-ink-50">
+							Careful EmDash positioning
+						</p>
+						<p class="text-sm leading-7 text-ink-600 dark:text-ink-300">
+							The project tracks the EmDash discussion, but this site does not pretend the
+							integration contract is final.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -148,7 +145,7 @@
 	</div>
 </section>
 
-<section class="border-y border-ink-300/80 bg-white/45 py-14 dark:border-ink-700 dark:bg-ink-950/35 md:py-18">
+<section class="section-band border-y border-ink-300/80 py-14 dark:border-ink-700 md:py-18">
 	<div class="site-shell grid gap-8 lg:grid-cols-[minmax(0,0.76fr)_minmax(0,1.24fr)] lg:items-start">
 		<div class="space-y-5">
 			<p class="section-eyebrow">Example flows</p>

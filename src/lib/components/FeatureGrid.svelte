@@ -12,7 +12,7 @@
 
 <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
 	{#each items as item}
-		<Card class="feature-card !rounded-[1.75rem] !border !border-slate-200/70 !bg-white/80 !p-0 !shadow-none dark:!border-slate-800/80 dark:!bg-slate-950/70">
+		<Card class="feature-card !rounded-[1.75rem] !border !border-ink-300 !bg-white !p-0 !shadow-none dark:!border-ink-700 dark:!bg-ink-950">
 			<div class="space-y-5 p-7">
 				<div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-500/10 text-2xl">
 					{item.icon}

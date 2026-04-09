@@ -16,7 +16,7 @@
 </svelte:head>
 
 <div class="min-h-screen">
-	<header class="sticky top-0 z-50 border-b border-ink-300/80 bg-white/75 backdrop-blur-xl dark:border-ink-700 dark:bg-ink-950/78">
+	<header class="sticky top-0 z-50 border-b border-ink-300/90 bg-white dark:border-ink-700 dark:bg-ink-950">
 		<div class="site-shell">
 			<Navbar fluid class="!bg-transparent !px-0 !py-2 md:!py-2.5" navContainerClass="!px-0">
 				<NavBrand href="/" class="gap-2 !no-underline">
@@ -33,14 +33,14 @@
 
 				<div class="flex items-center gap-2 md:order-2">
 					<DarkMode
-						class="rounded-full border border-ink-300/80 bg-white/90 text-ink-700 shadow-sm dark:border-ink-700 dark:bg-ink-950 dark:text-ink-100 [&>button]:!h-9 [&>button]:!w-9"
+						class="rounded-full border border-ink-300 bg-ink-50 text-ink-700 shadow-none dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100 [&>button]:!h-9 [&>button]:!w-9"
 					/>
 					<a
 						href={site.githubUrl}
 						target="_blank"
 						rel="noreferrer"
 						aria-label="View worker-mailer on GitHub"
-						class="flex h-9 w-9 items-center justify-center rounded-full border border-ink-300/80 bg-white/90 text-ink-700 transition hover:border-brand-300 hover:text-brand-700 dark:border-ink-700 dark:bg-ink-950 dark:text-ink-100 dark:hover:border-brand-400 dark:hover:text-brand-200"
+						class="flex h-9 w-9 items-center justify-center rounded-full border border-ink-300 bg-ink-50 text-ink-700 transition hover:border-brand-300 hover:text-brand-700 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100 dark:hover:border-brand-400 dark:hover:text-brand-200"
 					>
 						<svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
 							<path
@@ -49,16 +49,16 @@
 						</svg>
 					</a>
 					<NavHamburger
-						class="rounded-full border border-ink-300/80 bg-white/90 text-ink-700 shadow-sm dark:border-ink-700 dark:bg-ink-950 dark:text-ink-100 md:!hidden [&>button]:!h-9 [&>button]:!w-9"
+						class="rounded-full border border-ink-300 bg-ink-50 text-ink-700 shadow-none dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100 md:!hidden [&>button]:!h-9 [&>button]:!w-9"
 					/>
 				</div>
 
 				<NavUl
 					activeUrl={currentPath}
-					class="!mt-3 !rounded-[1.15rem] !border !border-ink-300/80 !bg-white/92 !p-1.5 dark:!border-ink-700 dark:!bg-ink-950/92 md:!mt-0 md:!border-0 md:!bg-transparent md:!p-0 md:!text-sm"
+					class="!mt-3 !rounded-[1.15rem] !border !border-ink-300 !bg-white !p-1.5 dark:!border-ink-700 dark:!bg-ink-950 md:!mt-0 md:!border-0 md:!bg-transparent md:!p-0 md:!text-sm"
 					classes={{
 						active:
-							'!bg-brand-500/12 !text-brand-700 dark:!bg-brand-400/14 dark:!text-brand-100 md:!bg-transparent',
+							'!bg-brand-50 !text-brand-700 dark:!bg-brand-900/30 dark:!text-brand-100 md:!bg-transparent',
 						nonActive: '!text-ink-600 dark:!text-ink-300'
 					}}
 				>
@@ -72,7 +72,7 @@
 
 	<main>{@render children()}</main>
 
-	<footer class="border-t border-ink-300/80 bg-white/75 dark:border-ink-700 dark:bg-ink-950/78">
+	<footer class="border-t border-ink-300/90 bg-ink-50 dark:border-ink-700 dark:bg-ink-950">
 		<div class="site-shell grid gap-10 py-10 lg:grid-cols-[1.15fr_0.8fr_0.8fr]">
 			<div class="space-y-4">
 				<div class="flex items-center gap-3">
