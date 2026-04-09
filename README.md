@@ -1,6 +1,6 @@
 # worker-mailer site
 
-Website for `@ribassu/worker-mailer`, built with SvelteKit, Flowbite Svelte,
+Website for `@workermailer/smtp`, built with SvelteKit, Flowbite Svelte,
 Tailwind CSS, Bun, and Cloudflare Workers.
 
 ## Local development
