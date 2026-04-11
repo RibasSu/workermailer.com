@@ -46,7 +46,7 @@
 />
 
 <section class="border-b border-ink-300/80">
-	<div class="site-shell py-8 md:py-10">
+	<div class="docs-shell py-8 md:py-10">
 		<nav class="docs-breadcrumbs" aria-label="Breadcrumb">
 			<a href="/docs">Docs</a>
 			<span>/</span>
@@ -55,7 +55,7 @@
 			<span aria-current="page">{page.title}</span>
 		</nav>
 
-		<div class="mt-5 grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-start">
+		<div class="mt-5 grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.75fr)] lg:items-start">
 			<div class="space-y-4">
 				<div class="flex items-center gap-3">
 					<div class="docs-library-icon">
@@ -99,7 +99,7 @@
 	</div>
 </section>
 
-<section class="site-shell py-6 md:py-8">
+<section class="docs-shell py-6 md:py-8">
 	<div class="docs-layout-grid">
 		<aside class="docs-sidebar lg:sticky lg:top-24">
 			<div class="docs-sidebar-shell">
