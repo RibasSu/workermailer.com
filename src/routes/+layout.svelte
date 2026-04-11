@@ -113,8 +113,8 @@
 				</div>
 
 				<p class="max-w-xl text-sm leading-7 text-ink-600 dark:text-ink-300">
-					The site ships with SvelteKit, Flowbite Svelte, Tailwind CSS, and the official
-					Cloudflare Workers adapter.
+					Focused docs, release notes, and library guidance for shipping email from Cloudflare
+					Workers.
 				</p>
 
 			</div>

@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import { Button } from 'flowbite-svelte';
 
+	import errorIllustration from '$lib/assets/illustrations/email.svg';
 	import Icon from '$lib/components/Icon.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 
@@ -29,6 +30,13 @@
 	<div class="surface-panel mx-auto max-w-4xl rounded-[2.2rem] p-8 sm:p-10">
 		<div class="grid gap-8 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:items-center">
 			<div class="space-y-4">
+				<div class="docs-illustration-frame max-w-[22rem]">
+					<img
+						src={errorIllustration}
+						alt="Email workflow illustration from unDraw adapted to the worker-mailer palette."
+						class="h-auto w-full"
+					/>
+				</div>
 				<div class="flex h-16 w-16 items-center justify-center rounded-[1.5rem] border border-brand-500/25 bg-brand-500/10 text-brand-700 dark:text-brand-200">
 					<Icon name={icon} className="h-8 w-8" />
 				</div>

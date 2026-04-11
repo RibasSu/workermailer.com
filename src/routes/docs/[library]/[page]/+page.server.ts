@@ -4,7 +4,7 @@ import { getLibraryOrThrow, loadLibraryDocsPage } from '$lib/server/github-markd
 
 export const load: PageServerLoad = async ({ fetch, params }) => {
 	const library = getLibraryOrThrow(params.library);
-	const docsPage = await loadLibraryDocsPage(fetch, library);
+	const docsPage = await loadLibraryDocsPage(fetch, library, params.page);
 
 	return {
 		library,

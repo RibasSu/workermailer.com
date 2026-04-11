@@ -31,7 +31,9 @@ export type LibraryItem = {
 	npmUrl: string;
 	githubUrl: string;
 	docsHref: string;
-	readmeUrl: string;
+	docsManifestUrl: string;
+	rawBaseUrl: string;
+	blobBaseUrl: string;
 	changelogUrl: string;
 	highlights: string[];
 };
@@ -92,7 +94,9 @@ export const libraries: LibraryItem[] = [
 		npmUrl: 'https://www.npmjs.com/package/@workermailer/smtp',
 		githubUrl: 'https://github.com/worker-mailer/smtp',
 		docsHref: '/docs/smtp',
-		readmeUrl: 'https://raw.githubusercontent.com/worker-mailer/smtp/master/README.md',
+		docsManifestUrl: 'https://raw.githubusercontent.com/worker-mailer/smtp/master/docs/manifest.json',
+		rawBaseUrl: 'https://raw.githubusercontent.com/worker-mailer/smtp/master/',
+		blobBaseUrl: 'https://github.com/worker-mailer/smtp/blob/master/',
 		changelogUrl: 'https://raw.githubusercontent.com/worker-mailer/smtp/master/CHANGELOG.md',
 		highlights: [
 			'TCP socket SMTP from Cloudflare Workers',
@@ -110,7 +114,9 @@ export const libraries: LibraryItem[] = [
 		npmUrl: 'https://www.npmjs.com/package/@workermailer/resend',
 		githubUrl: 'https://github.com/worker-mailer/resend',
 		docsHref: '/docs/resend',
-		readmeUrl: 'https://raw.githubusercontent.com/worker-mailer/resend/master/README.md',
+		docsManifestUrl: 'https://raw.githubusercontent.com/worker-mailer/resend/master/docs/manifest.json',
+		rawBaseUrl: 'https://raw.githubusercontent.com/worker-mailer/resend/master/',
+		blobBaseUrl: 'https://github.com/worker-mailer/resend/blob/master/',
 		changelogUrl: 'https://raw.githubusercontent.com/worker-mailer/resend/master/CHANGELOG.md',
 		highlights: [
 			'Fetch-based Resend delivery for Workers',
