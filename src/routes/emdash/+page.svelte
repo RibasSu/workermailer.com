@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { Button } from 'flowbite-svelte';
 
+	import Icon from '$lib/components/Icon.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pipelineStages, providers, site } from '$lib/content/site';
 </script>
 
 <Seo
 	title="EmDash Discussion"
-	description="A careful summary of how worker-mailer relates to the EmDash email-provider discussion, without publishing speculative integration code."
+	description="How worker-mailer ships EmDash-ready sandbox bundles while the public provider contract evolves."
 	path="/emdash"
 	keywords={['EmDash', 'email provider discussion', 'SMTP provider']}/>
 
@@ -15,11 +16,11 @@
 	<div class="site-shell py-14 md:py-16">
 		<p class="text-[0.78rem] uppercase tracking-[0.18em] text-ink-500">Public discussion #245</p>
 		<p class="section-eyebrow mt-5">EmDash</p>
-		<h1 class="section-title mt-4 max-w-4xl">A discussion summary, not a made-up integration guide.</h1>
+		<h1 class="section-title mt-4 max-w-4xl">Sandbox-ready bundles, plus the discussion context.</h1>
 		<p class="section-copy mt-5">
-			worker-mailer matters to the EmDash conversation because it already covers SMTP on
-			Cloudflare Workers. What remains open is the shared provider contract around it. This
-			page stays on that line.
+			worker-mailer matters to the EmDash conversation because SMTP and Resend already run on
+			Cloudflare Workers. The sandbox bundles exist today; the shared provider contract is
+			still evolving. This page keeps those two realities separate.
 		</p>
 	</div>
 </section>
@@ -29,12 +30,13 @@
 		<div class="space-y-5">
 			<p class="section-eyebrow">What is already true</p>
 			<h2 class="text-2xl font-semibold tracking-tight text-ink-800 dark:text-ink-50 md:text-3xl">
-				worker-mailer already brings a concrete SMTP transport to the table.
+				worker-mailer already ships concrete SMTP and Resend transports.
 			</h2>
 			<ul class="space-y-3 text-base leading-8 text-ink-600 dark:text-ink-300">
 				<li>Cloudflare Workers SMTP transport exists today.</li>
-				<li>Queue helpers, hooks, CID images, and DSN are already part of the package API.</li>
-				<li>This makes worker-mailer a relevant transport candidate when CMS-side provider APIs mature.</li>
+				<li>Resend delivery ships as a Worker-native API client.</li>
+				<li>Queue helpers, hooks, CID images, and DSN are already part of the SMTP package API.</li>
+				<li>Sandbox bundles exist for both transports so teams can test now.</li>
 			</ul>
 		</div>
 
@@ -54,7 +56,10 @@
 					rel="noreferrer"
 					class="!rounded-full !bg-brand-500 !px-5 !py-3 !text-sm !font-semibold !tracking-[0.16em] !text-white"
 				>
-					Open discussion #245
+					<span class="inline-flex items-center gap-2">
+						<Icon name="github" className="h-4 w-4" />
+						<span>Open discussion #245</span>
+					</span>
 				</Button>
 				<Button
 					tag="a"
@@ -64,7 +69,10 @@
 					outline
 					class="!rounded-full !border-ink-300 !px-5 !py-3 !text-sm !font-semibold !tracking-[0.16em] !text-ink-800 dark:!border-ink-700 dark:!text-ink-50"
 				>
-					Visit EmDash
+					<span class="inline-flex items-center gap-2">
+						<Icon name="plug" className="h-4 w-4" />
+						<span>Visit EmDash</span>
+					</span>
 				</Button>
 			</div>
 		</div>
@@ -107,11 +115,11 @@
 		<div class="space-y-5">
 			<p class="section-eyebrow">Transport status</p>
 			<h2 class="text-2xl font-semibold tracking-tight text-ink-800 dark:text-ink-50 md:text-3xl">
-				What belongs to worker-mailer, and what does not
+				What ships now versus what is still being debated
 			</h2>
 			<p class="section-copy">
-				The distinction matters. This site can document worker-mailer accurately today, while
-				leaving future provider work to future documentation.
+				The distinction matters. This site documents what ships today while the EmDash contract
+				matures in public.
 			</p>
 		</div>
 
@@ -120,7 +128,7 @@
 				<div class={`grid gap-3 px-5 py-5 md:grid-cols-[120px_minmax(0,1fr)] md:px-7 ${index !== 0 ? 'border-t border-ink-300/70 dark:border-ink-700' : ''}`}>
 					<div class="flex items-center gap-3">
 						<div class="flex h-11 w-11 items-center justify-center rounded-full border border-brand-200 bg-brand-50 text-[0.72rem] font-semibold tracking-[0.18em] text-brand-700 dark:border-brand-700/50 dark:bg-brand-900/30 dark:text-brand-300">
-							{provider.icon}
+							<Icon name={provider.icon} className="h-5 w-5" />
 						</div>
 						<p class="text-sm font-semibold tracking-tight text-ink-800 dark:text-ink-50">
 							{provider.name}

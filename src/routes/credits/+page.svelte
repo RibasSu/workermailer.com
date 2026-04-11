@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button } from 'flowbite-svelte';
 
+	import Icon from '$lib/components/Icon.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/content/site';
 </script>
@@ -75,7 +76,10 @@
 						rel="noreferrer"
 						class="!rounded-full !bg-brand-500 !px-5 !py-2.5 !text-sm !font-semibold !tracking-[0.08em] !text-white hover:!bg-brand-300"
 					>
-						Open npm package
+						<span class="inline-flex items-center gap-2">
+							<Icon name="package" className="h-4 w-4" />
+							<span>Open npm package</span>
+						</span>
 					</Button>
 				</div>
 
@@ -98,7 +102,10 @@
 						outline
 						class="!rounded-full !border-ink-300 !px-5 !py-2.5 !text-sm !font-semibold !tracking-[0.08em] !text-ink-800 dark:!border-ink-700 dark:!text-ink-50"
 					>
-						Open GitHub repository
+						<span class="inline-flex items-center gap-2">
+							<Icon name="github" className="h-4 w-4" />
+							<span>Open GitHub repository</span>
+						</span>
 					</Button>
 				</div>
 			</div>

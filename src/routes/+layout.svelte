@@ -1,14 +1,33 @@
 <script lang="ts">
 	import './layout.css';
-	import { DarkMode, Navbar, NavBrand, NavHamburger, NavLi, NavUl } from 'flowbite-svelte';
+	import { onMount } from 'svelte';
+	import { Navbar, NavBrand, NavHamburger, NavLi, NavUl } from 'flowbite-svelte';
 	import { page } from '$app/state';
 
+	import Icon from '$lib/components/Icon.svelte';
 	import LogoMark from '$lib/components/LogoMark.svelte';
 	import { navigation, site } from '$lib/content/site';
 	import favicon from '$lib/assets/favicon.svg';
 
 	let { children } = $props();
 	let currentPath = $derived(page.url.pathname);
+	let isDark = $state(false);
+
+	function applyTheme(nextDark: boolean) {
+		isDark = nextDark;
+		document.documentElement.classList.toggle('dark', nextDark);
+		localStorage.setItem('theme', nextDark ? 'dark' : 'light');
+	}
+
+	function toggleTheme() {
+		applyTheme(!isDark);
+	}
+
+	onMount(() => {
+		const storedTheme = localStorage.getItem('theme');
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		applyTheme(storedTheme ? storedTheme === 'dark' : prefersDark);
+	});
 </script>
 
 <svelte:head>
@@ -26,30 +45,31 @@
 							worker-mailer
 						</span>
 						<span class="hidden text-[0.68rem] text-ink-500 dark:text-ink-400 lg:block">
-							Cloudflare Workers SMTP
+							Cloudflare Workers Email
 						</span>
 					</span>
 				</NavBrand>
 
 				<div class="flex items-center gap-2 md:order-2">
-					<DarkMode
-						class="rounded-full border border-ink-300 bg-ink-50 text-ink-700 shadow-none dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100 [&>button]:!h-9 [&>button]:!w-9"
-					/>
+					<button
+						type="button"
+						onclick={toggleTheme}
+						aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+						class="icon-button"
+					>
+						<Icon name={isDark ? 'sun' : 'moon'} className="h-[1.1rem] w-[1.1rem]" />
+					</button>
 					<a
 						href={site.githubUrl}
 						target="_blank"
 						rel="noreferrer"
 						aria-label="View worker-mailer on GitHub"
-						class="flex h-9 w-9 items-center justify-center rounded-full border border-ink-300 bg-ink-50 text-ink-700 transition hover:border-brand-300 hover:text-brand-700 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100 dark:hover:border-brand-400 dark:hover:text-brand-200"
+						class="icon-button"
 					>
-						<svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
-							<path
-								d="M12 2C6.48 2 2 6.59 2 12.25c0 4.53 2.87 8.38 6.84 9.74.5.1.68-.22.68-.5 0-.25-.01-1.08-.02-1.95-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.94.85.09-.67.35-1.12.63-1.37-2.22-.26-4.56-1.15-4.56-5.11 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.32.1-2.74 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 6.82c.85 0 1.71.12 2.5.36 1.9-1.34 2.74-1.06 2.74-1.06.55 1.42.21 2.48.1 2.74.64.72 1.03 1.64 1.03 2.77 0 3.97-2.34 4.84-4.57 5.1.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .28.18.61.69.5A10.28 10.28 0 0 0 22 12.25C22 6.59 17.52 2 12 2Z"
-							/>
-						</svg>
+						<Icon name="github" className="h-[1.1rem] w-[1.1rem]" />
 					</a>
 					<NavHamburger
-						class="rounded-full border border-ink-300 bg-ink-50 text-ink-700 shadow-none dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100 md:!hidden [&>button]:!h-9 [&>button]:!w-9"
+						class="rounded-full border border-ink-300 bg-ink-50 text-ink-700 shadow-none dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100 md:!hidden [&>button]:!h-10 [&>button]:!w-10"
 					/>
 				</div>
 
@@ -63,7 +83,12 @@
 					}}
 				>
 					{#each navigation as item}
-						<NavLi href={item.href}>{item.label}</NavLi>
+						<NavLi href={item.href}>
+							<span class="inline-flex items-center gap-2">
+								<Icon name={item.icon} className="h-4 w-4 shrink-0" />
+								<span>{item.label}</span>
+							</span>
+						</NavLi>
 					{/each}
 				</NavUl>
 			</Navbar>
@@ -82,7 +107,7 @@
 							worker-mailer
 						</p>
 						<p class="text-sm text-ink-500 dark:text-ink-400">
-							SMTP delivery for Cloudflare Workers, built for Bun-first teams.
+							SMTP and Resend delivery for Cloudflare Workers, built for Bun-first teams.
 						</p>
 					</div>
 				</div>
@@ -99,7 +124,8 @@
 				<ul class="mt-4 space-y-3 text-sm text-ink-600 dark:text-ink-300">
 					{#each navigation as item}
 						<li>
-							<a href={item.href} class="transition hover:text-brand-600 dark:hover:text-brand-300">
+							<a href={item.href} class="inline-flex items-center gap-2 transition hover:text-brand-600 dark:hover:text-brand-300">
+								<Icon name={item.icon} className="h-4 w-4 shrink-0" />
 								{item.label}
 							</a>
 						</li>
@@ -115,8 +141,9 @@
 							href={site.npmUrl}
 							target="_blank"
 							rel="noreferrer"
-							class="transition hover:text-brand-600 dark:hover:text-brand-300"
+							class="inline-flex items-center gap-2 transition hover:text-brand-600 dark:hover:text-brand-300"
 						>
+							<Icon name="package" className="h-4 w-4 shrink-0" />
 							View on npm
 						</a>
 					</li>
@@ -125,8 +152,9 @@
 							href={site.githubUrl}
 							target="_blank"
 							rel="noreferrer"
-							class="transition hover:text-brand-600 dark:hover:text-brand-300"
+							class="inline-flex items-center gap-2 transition hover:text-brand-600 dark:hover:text-brand-300"
 						>
+							<Icon name="github" className="h-4 w-4 shrink-0" />
 							GitHub repository
 						</a>
 					</li>
@@ -135,8 +163,9 @@
 							href={site.discussionUrl}
 							target="_blank"
 							rel="noreferrer"
-							class="transition hover:text-brand-600 dark:hover:text-brand-300"
+							class="inline-flex items-center gap-2 transition hover:text-brand-600 dark:hover:text-brand-300"
 						>
+							<Icon name="plug" className="h-4 w-4 shrink-0" />
 							EmDash discussion
 						</a>
 					</li>

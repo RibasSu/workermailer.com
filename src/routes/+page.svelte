@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button } from 'flowbite-svelte';
 
+	import Icon from '$lib/components/Icon.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { exampleCards, featureItems, site } from '$lib/content/site';
 </script>
@@ -12,14 +13,14 @@
 		<div class="space-y-6">
 			<div class="space-y-3">
 				<p class="text-[0.78rem] uppercase tracking-[0.18em] text-ink-500">
-					v{site.version} • MIT licensed
+					{site.releaseLine} • MIT licensed
 				</p>
 				<p class="section-eyebrow">Worker runtime email</p>
 				<h1 class="section-title max-w-3xl">{site.tagline}</h1>
 				<p class="section-copy max-w-2xl">
-					worker-mailer keeps SMTP inside the Worker runtime, with a smaller transport layer,
-					Bun-friendly workflows, and documentation that stays close to what the package
-					actually ships.
+					worker-mailer keeps SMTP and Resend inside the Worker runtime, with a smaller
+					transport layer, Bun-friendly workflows, and documentation that stays close to what
+					the packages actually ship.
 				</p>
 			</div>
 
@@ -29,17 +30,21 @@
 					href="/docs"
 					class="!rounded-full !bg-brand-500 !px-5 !py-2.5 !text-sm !font-semibold !tracking-[0.08em] !text-white hover:!bg-brand-300"
 				>
-					Get Started
+					<span class="inline-flex items-center gap-2">
+						<Icon name="book-open" className="h-4 w-4" />
+						<span>Get Started</span>
+					</span>
 				</Button>
 				<Button
 					tag="a"
-					href={site.npmUrl}
-					target="_blank"
-					rel="noreferrer"
+					href="/libs"
 					outline
 					class="!rounded-full !border-ink-300 !px-5 !py-2.5 !text-sm !font-semibold !tracking-[0.08em] !text-ink-800 dark:!border-ink-700 dark:!text-ink-50"
 				>
-					View on npm
+					<span class="inline-flex items-center gap-2">
+						<Icon name="library" className="h-4 w-4" />
+						<span>View libraries</span>
+					</span>
 				</Button>
 			</div>
 
@@ -49,7 +54,14 @@
 						<p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-500">Transport</p>
 						<p class="mt-2 text-base font-semibold tracking-tight text-ink-800 dark:text-ink-50">SMTP</p>
 						<p class="mt-2 text-sm leading-6 text-ink-600 dark:text-ink-300">
-							Direct delivery from Cloudflare Workers.
+							Direct delivery from Cloudflare Workers via TCP sockets.
+						</p>
+					</div>
+					<div class="border-t border-ink-300/80 px-4 py-4 sm:border-l sm:border-t-0 sm:px-5 dark:border-ink-700">
+						<p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-500">API</p>
+						<p class="mt-2 text-base font-semibold tracking-tight text-ink-800 dark:text-ink-50">Resend</p>
+						<p class="mt-2 text-sm leading-6 text-ink-600 dark:text-ink-300">
+							Fetch-based delivery aligned with SMTP patterns.
 						</p>
 					</div>
 					<div class="border-t border-ink-300/80 px-4 py-4 sm:border-l sm:border-t-0 sm:px-5 dark:border-ink-700">
@@ -57,13 +69,6 @@
 						<p class="mt-2 text-base font-semibold tracking-tight text-ink-800 dark:text-ink-50">Queues</p>
 						<p class="mt-2 text-sm leading-6 text-ink-600 dark:text-ink-300">
 							Move send work off the request path.
-						</p>
-					</div>
-					<div class="border-t border-ink-300/80 px-4 py-4 sm:border-l sm:border-t-0 sm:px-5 dark:border-ink-700">
-						<p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-500">Typing</p>
-						<p class="mt-2 text-base font-semibold tracking-tight text-ink-800 dark:text-ink-50">TypeScript</p>
-						<p class="mt-2 text-sm leading-6 text-ink-600 dark:text-ink-300">
-							Hooks, DSN, attachments, and envelopes.
 						</p>
 					</div>
 				</div>
@@ -80,7 +85,7 @@
 				<div class="divide-y divide-ink-300/80 border-t border-ink-300/80 dark:divide-ink-700 dark:border-ink-700">
 					<div class="grid gap-2 py-4 pr-12 sm:pr-16">
 						<p class="text-sm font-semibold tracking-tight text-ink-800 dark:text-ink-50">
-							Direct Worker delivery
+							SMTP delivery
 						</p>
 						<p class="text-sm leading-7 text-ink-600 dark:text-ink-300">
 							Cloudflare TCP sockets, SMTP auth modes, HTML/text bodies, and attachments.
@@ -88,19 +93,18 @@
 					</div>
 					<div class="grid gap-2 py-4 pr-12 sm:pr-16">
 						<p class="text-sm font-semibold tracking-tight text-ink-800 dark:text-ink-50">
-							Operational controls
+							Resend delivery
 						</p>
 						<p class="text-sm leading-7 text-ink-600 dark:text-ink-300">
-							Lifecycle hooks, DSN, custom SMTP errors, timeouts, and queue helpers.
+							Fetch-based API with aligned envelope and queue helpers.
 						</p>
 					</div>
 					<div class="grid gap-2 py-4 pr-12 sm:pr-16">
 						<p class="text-sm font-semibold tracking-tight text-ink-800 dark:text-ink-50">
-							Careful EmDash positioning
+							EmDash sandbox bundles
 						</p>
 						<p class="text-sm leading-7 text-ink-600 dark:text-ink-300">
-							The project tracks the EmDash discussion, but this site does not pretend the
-							integration contract is final.
+							Sandbox-ready bundles ship alongside both libraries for EmDash wiring.
 						</p>
 					</div>
 				</div>
@@ -115,18 +119,18 @@
 			<p class="section-eyebrow">Current surface area</p>
 			<h2 class="section-title max-w-lg">A smaller mail stack, tuned for edge workloads.</h2>
 			<p class="section-copy">
-				worker-mailer focuses on the pieces that matter most in Workers: a lean SMTP client,
-				solid types, and predictable delivery behavior.
+				worker-mailer focuses on the pieces that matter most in Workers: lean SMTP and Resend
+				transports, solid types, and predictable delivery behavior.
 			</p>
 		</div>
 
-		<div class="surface-panel overflow-hidden rounded-[1.75rem]">
-			{#each featureItems as item, index}
-				<article class={`grid gap-3 px-4 py-4 md:grid-cols-[104px_minmax(0,1fr)] md:px-6 ${index !== 0 ? 'border-t border-ink-300/70 dark:border-ink-700' : ''}`}>
-					<div>
-						<p class="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-brand-700 dark:text-brand-300">
-							{item.icon}
-						</p>
+			<div class="surface-panel overflow-hidden rounded-[1.75rem]">
+				{#each featureItems as item, index}
+					<article class={`grid gap-3 px-4 py-4 md:grid-cols-[104px_minmax(0,1fr)] md:px-6 ${index !== 0 ? 'border-t border-ink-300/70 dark:border-ink-700' : ''}`}>
+					<div class="flex items-start">
+						<div class="flex h-12 w-12 items-center justify-center rounded-2xl border border-brand-500/25 bg-brand-500/10 text-brand-700 dark:text-brand-200">
+							<Icon name={item.icon} className="h-6 w-6" />
+						</div>
 					</div>
 					<div class="space-y-2">
 						<h3 class="text-lg font-semibold tracking-tight text-ink-800 dark:text-ink-50">
@@ -160,7 +164,10 @@
 					href="/examples"
 					class="!rounded-full !bg-ink-800 !px-5 !py-2.5 !text-sm !font-semibold !tracking-[0.08em] !text-white dark:!bg-ink-50 dark:!text-ink-900"
 				>
-					View examples
+					<span class="inline-flex items-center gap-2">
+						<Icon name="terminal" className="h-4 w-4" />
+						<span>View examples</span>
+					</span>
 				</Button>
 				<Button
 					tag="a"
@@ -168,7 +175,10 @@
 					outline
 					class="!rounded-full !border-ink-300 !px-5 !py-2.5 !text-sm !font-semibold !tracking-[0.08em] !text-ink-800 dark:!border-ink-700 dark:!text-ink-50"
 				>
-					Read the docs
+					<span class="inline-flex items-center gap-2">
+						<Icon name="book-open" className="h-4 w-4" />
+						<span>Read the docs</span>
+					</span>
 				</Button>
 			</div>
 		</div>
@@ -193,11 +203,10 @@
 	<div class="grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start">
 		<div class="space-y-5">
 			<p class="section-eyebrow">EmDash</p>
-			<h2 class="section-title max-w-xl">Following the discussion without pretending the API is settled.</h2>
+			<h2 class="section-title max-w-xl">EmDash-ready bundles without inventing APIs.</h2>
 			<p class="section-copy">
-				worker-mailer is relevant to the EmDash conversation because it already solves SMTP on
-				Cloudflare Workers. That is different from claiming a final plugin contract or showing
-				setup steps that have not been decided yet.
+				SMTP and Resend ship with sandbox-compatible bundles so EmDash teams can test providers
+				without guessing at upstream contracts.
 			</p>
 		</div>
 
@@ -208,7 +217,7 @@
 						Concrete today
 					</p>
 					<p class="text-sm leading-7 text-ink-600 dark:text-ink-300">
-						SMTP transport, queues, hooks, attachments, and TypeScript support.
+						SMTP transport, Resend transport, queues, hooks, attachments, and TypeScript support.
 					</p>
 				</div>
 				<div class="space-y-2">
@@ -224,7 +233,7 @@
 						How this site handles it
 					</p>
 					<p class="text-sm leading-7 text-ink-600 dark:text-ink-300">
-						We link to the discussion and summarize the themes without fabricating examples.
+						We document real bundles and link to the discussion without fabricating examples.
 					</p>
 				</div>
 			</div>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button } from 'flowbite-svelte';
 
+	import Icon from '$lib/components/Icon.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { exampleCards } from '$lib/content/site';
 </script>
@@ -43,15 +44,21 @@
 			href="/docs"
 			class="!rounded-full !bg-brand-500 !px-5 !py-2.5 !text-sm !font-semibold !tracking-[0.08em] !text-white hover:!bg-brand-300"
 		>
-			Open documentation
+			<span class="inline-flex items-center gap-2">
+				<Icon name="book-open" className="h-4 w-4" />
+				<span>Open documentation</span>
+			</span>
 		</Button>
 		<Button
 			tag="a"
-			href="/docs#quick-start"
+			href="/docs/smtp"
 			outline
 			class="!rounded-full !border-ink-300 !px-5 !py-2.5 !text-sm !font-semibold !tracking-[0.08em] !text-ink-800 dark:!border-ink-700 dark:!text-ink-50"
 		>
-			Go to quick start
+			<span class="inline-flex items-center gap-2">
+				<Icon name="arrow-right" className="h-4 w-4" />
+				<span>Go to SMTP docs</span>
+			</span>
 		</Button>
 	</div>
 </section>
