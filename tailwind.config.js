@@ -4,7 +4,7 @@
  * Referência: https://brandpalettes.com/cloudflare-logo-colors/
  *             https://blog.cloudflare.com/thinking-about-color/
  * NÃO usar: azul Tailwind puro (blue-600 #2563EB) sem passar pelo token `edge-*`
- * NÃO usar: preto puro (#000) — sempre usar ink-800 ou ink-950
+ * Contraste forte: usar preto ou branco nas superfícies e no texto
  */
 export default {
 	darkMode: 'class',
@@ -36,17 +36,17 @@ export default {
 					900: '#1E3A5F'
 				},
 				ink: {
-					50: '#F9F7F5',
-					100: '#F0EDE8',
-					200: '#E2DED8',
-					300: '#D3D1C7',
-					400: '#B4B2A9',
-					500: '#888780',
-					600: '#5F5E5A',
-					700: '#444441',
-					800: '#404041',
-					900: '#2C2C2A',
-					950: '#1A1A1B'
+					50: 'var(--ink-50)',
+					100: 'var(--ink-100)',
+					200: 'var(--ink-200)',
+					300: 'var(--ink-300)',
+					400: 'var(--ink-400)',
+					500: 'var(--ink-500)',
+					600: 'var(--ink-600)',
+					700: 'var(--ink-700)',
+					800: 'var(--ink-800)',
+					900: 'var(--ink-900)',
+					950: 'var(--ink-950)'
 				}
 			}
 		}
