@@ -4,9 +4,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Marketing website for the Worker Mailer suite.
+Website institucional da suíte Worker Mailer.
 
-## Development
+## Desenvolvimento
 
 ```bash
 bun install
@@ -25,10 +25,10 @@ bun run build
 bun run deploy
 ```
 
-## Contributing
+## Contribuição
 
-See `CONTRIBUTING.md`.
+Veja `CONTRIBUTING.md`.
 
-## License
+## Licença
 
-MIT. See `LICENSE`.
+MIT. Veja `LICENSE`.
